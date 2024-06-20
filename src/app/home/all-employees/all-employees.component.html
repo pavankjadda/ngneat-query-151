@@ -1,0 +1,90 @@
+<!-- table block -->
+<div style="margin: 20px">
+	<!-- Search Box -->
+	<div class="row">
+		<mat-form-field appearance="fill" style="width: 100%">
+			<mat-icon matPrefix>search</mat-icon>
+			<mat-label>Search Employees</mat-label>
+			<input
+				(keyup)="applyFilter($event)"
+				aria-label="Search for employees"
+				matInput
+				placeholder="Search for Employees using Name, Email or Description" />
+		</mat-form-field>
+	</div>
+
+	@if (loadingState().isLoading){
+	<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+	}
+
+	<!-- Employees Table -->
+	<table
+		#sorter="matSort"
+		[dataSource]="dataSource"
+		mat-table
+		matSort
+		matSortActive="lastName"
+		matSortDirection="desc"
+		matSortDisableClear="true">
+		<caption style="display: none">
+			Employees List Table
+		</caption>
+
+		<!-- ID Column -->
+		<ng-container matColumnDef="id">
+			<th *matHeaderCellDef mat-header-cell mat-sort-header="id">ID</th>
+			<td *matCellDef="let element" mat-cell>
+				{{ element.id }}
+			</td>
+		</ng-container>
+
+		<!-- First Name Column -->
+		<ng-container matColumnDef="firstName">
+			<th *matHeaderCellDef mat-header-cell mat-sort-header="firstName">First Name</th>
+			<td *matCellDef="let element" mat-cell>
+				{{ element.firstName }}
+			</td>
+		</ng-container>
+
+		<!-- Last Name Column -->
+		<ng-container matColumnDef="lastName">
+			<th *matHeaderCellDef mat-header-cell mat-sort-header="lastName">Last Name</th>
+			<td *matCellDef="let element" mat-cell>
+				{{ element.lastName }}
+			</td>
+		</ng-container>
+
+		<!-- Email Column -->
+		<ng-container matColumnDef="email">
+			<th *matHeaderCellDef mat-header-cell mat-sort-header="email">Group Email</th>
+			<td *matCellDef="let element" mat-cell>
+				{{ element.email }}
+			</td>
+		</ng-container>
+
+		<!-- Phone Column -->
+		<ng-container matColumnDef="phone">
+			<th *matHeaderCellDef mat-header-cell mat-sort-header="phone">Phone</th>
+			<td *matCellDef="let element" mat-cell>
+				{{ element.phone }}
+			</td>
+		</ng-container>
+
+		<!-- Age Column -->
+		<ng-container matColumnDef="age">
+			<th *matHeaderCellDef mat-header-cell mat-sort-header="age">Age</th>
+			<td *matCellDef="let element" mat-cell>
+				{{ element.age }}
+			</td>
+		</ng-container>
+
+		<tr *matHeaderRowDef="columns" mat-header-row></tr>
+		<tr *matRowDef="let row; columns: columns" mat-row></tr>
+	</table>
+	<mat-paginator #paginator="matPaginator" [pageSizeOptions]="[10, 20, 50, 100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+
+	<div>
+		<a class="btn btn-primary" routerLink="/add_employee" style="margin: 1rem">Add Employee</a>
+		<a class="btn btn-primary" routerLink="/delete_employee" style="margin: 1rem">Delete Employee</a>
+	</div>
+</div>

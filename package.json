@@ -2,33 +2,41 @@
   "name": "stackblitz-starters-bsrgez",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {
-    "@angular/animations": "17.1.1",
-    "@angular/common": "17.1.1",
-    "@angular/compiler": "17.1.1",
-    "@angular/core": "17.1.1",
-    "@angular/forms": "17.1.1",
-    "@angular/platform-browser": "17.1.1",
-    "@angular/router": "17.1.1",
-    "@ngneat/query": "2.0.0-beta.10",
-    "@tanstack/query-core": "^5.4.3",
-    "rxjs": "7.8.1",
-    "tslib": "2.6.2",
-    "zone.js": "0.14.2"
-  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4300",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "dependencies": {
+    "@angular/animations": "^17.0.4",
+    "@angular/cdk": "^17.0.1",
+    "@angular/common": "^17.0.4",
+    "@angular/compiler": "^17.0.4",
+    "@angular/core": "^17.0.4",
+    "@angular/forms": "^17.0.4",
+    "@angular/material": "^17.0.1",
+    "@angular/platform-browser": "^17.0.4",
+    "@angular/platform-browser-dynamic": "^17.0.4",
+    "@angular/router": "^17.0.4",
+    "@js-smart/ngxsmart": "^17.1.0",
+    "@ngneat/query": "^2.0.1",
+    "@tanstack/query-core": "^5.45.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.0"
+  },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~17.1.1",
-    "@angular/cli": "~17.1.1",
-    "@angular/compiler-cli": "~17.1.1",
-    "@types/node": "^20.11.10",
-    "typescript": "~5.3.3"
+    "@angular-devkit/build-angular": "^17.0.3",
+    "@angular/cli": "^17.0.3",
+    "@angular/compiler-cli": "^17.0.4",
+    "@ngneat/query-devtools": "^2.0.0-beta.0",
+    "@types/jest": "latest",
+    "jest": "latest",
+    "jest-environment-jsdom": "latest",
+    "prettier": "latest",
+    "typescript": "~5.2.2"
   }
 }
